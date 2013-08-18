@@ -11,9 +11,9 @@ module Nacre
     def initialize args
       @config = Nacre::Config.new(args)
       @connection = Nacre::Connection.new({
-          auth_data: auth_data,
-          auth_url: @config.auth_url,
-          api_url: @config.api_url
+          :auth_data => auth_data,
+          :auth_url => @config.auth_url,
+          :api_url => @config.api_url
       })
 
       @connection.authenticate
@@ -29,9 +29,9 @@ module Nacre
 
     def auth_data
         {
-            apiAccountCredentials: {
-                emailAddress: @config.email,
-                password:     @config.password
+            :apiAccountCredentials => {
+                :emailAddress => @config.email,
+                :password => @config.password
             }
         }
     end

@@ -1,4 +1,4 @@
-require 'psych'
+#require 'psych'
 
 module Nacre
   class Config
@@ -47,7 +47,7 @@ module Nacre
   private
 
     def load_file file
-      config = Psych.load( File.open(file,'r').read )
+      config = YAML.load( File.open(file,'r').read )
       load_values config
       return true
     end

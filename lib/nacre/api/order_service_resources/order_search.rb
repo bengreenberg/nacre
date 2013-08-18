@@ -8,7 +8,7 @@ module Nacre
       def initialize(search_url, query = nil, max_results = 200, starting_page = 1)
         @search_url = search_url
         @query = query
-        @params = build_params( max_results: max_results, starting_page: starting_page )
+        @params = build_params( :max_results => max_results, :starting_page => starting_page )
       end
 
       def self.connection
@@ -43,8 +43,8 @@ module Nacre
 
       def map_to_bp_param param_key
         bp_map = {
-          max_results: 'pageSize',
-          starting_page: 'firstResult'
+          :max_results => 'pageSize',
+          :starting_page => 'firstResult'
         }
         bp_map[param_key] || param_key.to_s
       end
